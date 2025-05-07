@@ -91,8 +91,10 @@ export default function NavBar() {
           
           {/* Desire 2025 Button */}
           <Link 
-            href="/desire2025" 
+            href="https://makemypass.com/event/desire-2025" 
             className="px-4 py-2 rounded-md bg-sage-600 text-white hover:bg-sage-700 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Desire 2025
           </Link>
@@ -110,8 +112,10 @@ export default function NavBar() {
         <div className="md:hidden flex items-center gap-4">
           {/* Desire 2025 Button (Mobile) */}
           <Link 
-            href="/desire2025" 
+            href="https://makemypass.com/event/desire-2025" 
             className="px-3 py-1.5 rounded-md bg-sage-600 text-white hover:bg-sage-700 transition-colors text-sm"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Desire 2025
           </Link>

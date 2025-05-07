@@ -11,8 +11,10 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.49.4",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/uuid": "^10.0.0",
     "@vercel/analytics": "^1.5.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "15.1.7",
     "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
@@ -21,7 +23,8 @@
     "react-slick": "^0.30.3",
     "react-webcam": "^7.2.0",
     "slick-carousel": "^1.8.1",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
