@@ -4,7 +4,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '../../context/AuthContext';
 import { signOut } from '../../utils/supabase';
-import React from 'react';
+import * as React from 'react';
 
 interface SidebarLink {
   name: string;

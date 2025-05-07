@@ -1,14 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import DashboardLayout from '../../../components/desire2025/DashboardLayout';
 import ProtectedRoute from '../../../components/ProtectedRoute';
 import { getStudents, checkInStudent, Student } from '../../../utils/database';
-import QRCode from 'qrcode.react';
-import dynamic from 'next/dynamic';
-
-// Dynamically import the webcam component with no SSR
-const Webcam = dynamic(() => import('react-webcam'), { ssr: false });
+import { QRCodeCanvas } from 'qrcode.react';
 
 export default function CheckInPage() {
   const [students, setStudents] = useState<Student[] | null>(null);
@@ -21,8 +17,6 @@ export default function CheckInPage() {
   const [scanMode, setScanMode] = useState(false);
   const [eventId, setEventId] = useState('event-' + new Date().toISOString().split('T')[0]);
   
-  const webcamRef = useRef<any>(null);
-
   useEffect(() => {
     const fetchStudents = async () => {
       try {
@@ -199,15 +193,19 @@ export default function CheckInPage() {
             {scanMode ? (
               <div className="p-6">
                 <div className="mb-4 max-w-md mx-auto">
-                  <Webcam
-                    ref={webcamRef}
-                    width="100%"
-                    height={300}
-                    videoConstraints={{
-                      facingMode: 'environment',
+                  <div 
+                    style={{ 
+                      width: '100%', 
+                      height: '300px', 
+                      backgroundColor: '#f3f4f6', 
+                      borderRadius: '0.5rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}
-                    style={{ borderRadius: '0.5rem' }}
-                  />
+                  >
+                    <p className="text-gray-500">Camera access required</p>
+                  </div>
                   <p className="text-center text-gray-500 mt-2">
                     Point camera at student QR code
                   </p>
