@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "touch node_modules/.bin/next"
+    "postinstall": "node -e \"try { require('fs').utimesSync('./node_modules/.bin/next', new Date(), new Date()); } catch (e) { console.log(e); }\""
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
