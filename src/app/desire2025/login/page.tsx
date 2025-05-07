@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { signIn } from '../../utils/supabase';
 import Link from 'next/link';
 
 export default function LoginPage() {
@@ -18,25 +17,18 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const { data, error } = await signIn(email, password);
-      if (error) {
-        setError(error.message);
-        return;
-      }
-
-      if (data.user) {
-        // Check if user is admin or school admin
-        const role = data.user.user_metadata?.role;
-        if (role === 'admin') {
+      // Mock login success - in a real app, this would verify credentials
+      setTimeout(() => {
+        if (email.includes('admin')) {
           router.push('/desire2025/admin/dashboard');
         } else {
           router.push('/desire2025/school/dashboard');
         }
-      }
+        setLoading(false);
+      }, 1000);
     } catch (err) {
       setError('An unexpected error occurred');
       console.error(err);
-    } finally {
       setLoading(false);
     }
   };

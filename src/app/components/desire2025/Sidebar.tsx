@@ -3,7 +3,6 @@
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '../../context/AuthContext';
-import { signOut } from '../../utils/supabase';
 import * as React from 'react';
 
 interface SidebarLink {
@@ -116,7 +115,7 @@ export default function Sidebar() {
   const links = isAdmin ? adminLinks : schoolLinks;
 
   const handleLogout = async () => {
-    await signOut();
+    // Mock logout function - just redirect
     router.push('/desire2025/login');
   };
 

@@ -3,8 +3,32 @@
 import { useState, useEffect } from 'react';
 import DashboardLayout from '../../../components/desire2025/DashboardLayout';
 import ProtectedRoute from '../../../components/ProtectedRoute';
-import { getStudents, checkInStudent, Student } from '../../../utils/database';
 import { QRCodeCanvas } from 'qrcode.react';
+
+// Mock type definitions
+interface Student {
+  id: string;
+  name: string;
+  class?: string;
+  school_id: string;
+  photo_url?: string;
+}
+
+// Mock data functions
+const getStudents = async (): Promise<Student[]> => {
+  // Return mock data
+  return [
+    { id: '1', name: 'John Doe', class: '10A', school_id: 'school1', photo_url: '' },
+    { id: '2', name: 'Jane Smith', class: '12B', school_id: 'school1', photo_url: '' },
+    { id: '3', name: 'Alice Johnson', class: '11C', school_id: 'school2', photo_url: '' }
+  ];
+};
+
+const checkInStudent = async (studentId: string, eventId: string): Promise<boolean> => {
+  // Mock successful check-in
+  console.log(`Checked in student ${studentId} for event ${eventId}`);
+  return true;
+};
 
 export default function CheckInPage() {
   const [students, setStudents] = useState<Student[] | null>(null);
