@@ -9,7 +9,7 @@ import * as React from 'react';
 interface SidebarLink {
   name: string;
   href: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement;
+  icon: (props: React.ComponentProps<'svg'>) => React.ReactNode;
 }
 
 export default function Sidebar() {
